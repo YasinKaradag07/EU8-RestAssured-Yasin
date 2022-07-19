@@ -15,7 +15,7 @@ public class SpartanNegativeGetTest {
     @BeforeAll
     public static void init(){
         // save baseUrl inside this variable so that we dont need to type each http method.
-        RestAssured.baseURI = "http://100.26.201.240:1000/ords/hr";//ords==> restAPI for database
+        RestAssured.baseURI = "http://100.26.201.240:8000";
     }
 
     /*TASK
