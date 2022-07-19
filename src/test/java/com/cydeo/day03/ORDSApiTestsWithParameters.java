@@ -1,6 +1,7 @@
 package com.cydeo.day03;
 
 
+import com.cydeo.utilities.HRTestBase;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
@@ -10,13 +11,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ORDSApiTestsWithParameters {
-
-    @BeforeAll
-    public static void init(){
-        // save baseUrl inside this variable so that we don't need to type each http method.
-        baseURI = "http://100.26.201.240:1000/ords/hr";
-    }
+public class ORDSApiTestsWithParameters extends HRTestBase {
 
      /*
         Given accept type is Json
