@@ -9,7 +9,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class HamcrestMatchersApiTest {
-
     /*
        given accept type is Json
        And path param id is 15
@@ -23,9 +22,10 @@ public class HamcrestMatchersApiTest {
            "phone": 1938695106
         */
 
-    @DisplayName("One Spartan with Hamcrest and chaining")
+    @DisplayName("OneSpartan with Hamcrest and chaining")
     @Test
     public void test1(){
+
         given().log().all().
                 accept(ContentType.JSON)
                 .and().pathParam("id",15)
@@ -84,7 +84,9 @@ public class HamcrestMatchersApiTest {
                 .and()
                 .body("teachers.firstName",hasItems("Alexander","Darleen","Sean"));
 
+
     }
+
 
 
 }
