@@ -6,6 +6,7 @@ import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
@@ -35,5 +36,27 @@ public class SpartanJsonToCollections {
         assertEquals(spartanMap.get("name"),"Nona");
     }
 
+    @Test
+    public void test2(){
+
+        Response response = given().accept(ContentType.JSON)
+                .when().get("/api/spartans");
+
+        //response.prettyPrint();
+        // convert full json body to list of maps
+        List<Map<String,Object>> listOfSpartans = response.body().as(List.class);
+
+        // print all data of first spartan
+        System.out.println(listOfSpartans.get(0));
+        Map<String,Object> firstSpartan = listOfSpartans.get(0);
+        System.out.println(firstSpartan.get("name"));
+
+        int counter = 1;
+        for (Map<String, Object> map : listOfSpartans) {
+            System.out.println(counter+". - spartan "+map);
+            counter++;
+        }
+
+    }
 
 }
