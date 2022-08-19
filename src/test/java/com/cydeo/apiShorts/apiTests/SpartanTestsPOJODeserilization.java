@@ -1,5 +1,6 @@
 package com.cydeo.apiShorts.apiTests;
 
+import com.google.gson.Gson;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
@@ -33,6 +34,34 @@ public class SpartanTestsPOJODeserilization {
         assertEquals(spartan1.getGender(),"Female");
         assertEquals(spartan1.getPhone(), Long.valueOf(1938695106));
 
+
+    }
+
+    @Test
+    public void gsonExample(){
+
+        Gson gson = new Gson();
+
+        String myJsonBody = "{\n" +
+                "    \"id\": 15,\n" +
+                "    \"name\": \"Meta\",\n" +
+                "    \"gender\": \"Female\",\n" +
+                "    \"phone\": 1938695106\n" +
+                "}";
+
+        // Using gson method do de-serialize our json body
+        Spartan spartanMeta = gson.fromJson(myJsonBody,Spartan.class);
+
+        System.out.println(spartanMeta.toString());
+
+        // serialization Java object ===> JSON body
+
+        Spartan spartan = new Spartan(101,"Mike","Male",321342123l);
+
+        // converting custom class to json
+        String jsonbody = gson.toJson(spartan);
+
+        System.out.println(jsonbody);
 
     }
 

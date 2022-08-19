@@ -11,6 +11,13 @@ public class Spartan {
     public Spartan() {
     }
 
+    public Spartan(int id, String name, String gender, Long phone) {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.phone = phone;
+    }
+
     public int getId() {
         return id;
     }
